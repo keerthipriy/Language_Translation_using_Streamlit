@@ -83,12 +83,6 @@ st.markdown("""
     </div>
 """, unsafe_allow_html=True)
 
-# Info box
-st.markdown("""
-    <div class="info-box">
-        <strong>ℹ️ How to use:</strong> Enter your text below, select your target language, and click Submit to translate!
-    </div>
-""", unsafe_allow_html=True)
 
 # Create two columns for better layout
 col1, col2 = st.columns([2, 1])
@@ -137,9 +131,6 @@ with col2:
         index=0
     )
     
-    # Display selected language code
-    st.info(f"Language Code: **{languages[selected_language]}**")
-
 # Add some spacing
 st.markdown("<br>", unsafe_allow_html=True)
 
@@ -183,10 +174,10 @@ if st.button("🚀 Translate Now"):
                         mime="text/plain"
                     )
                 else:
-                    st.error(f"❌ Error: Received status code {response.status_code}")
+                    st.error(f" Error: Received status code {response.status_code}")
                     
             except Exception as e:
-                st.error(f"❌ An error occurred: {str(e)}")
+                st.error(f" An error occurred: {str(e)}")
     else:
         st.warning("⚠️ Please enter some text to translate!")
 else:
@@ -197,4 +188,5 @@ st.markdown("---")
 st.markdown("""
     <div style="text-align: center; color: #7f8c8d; padding: 1rem;">
         <p>Made with ❤️ using Streamlit | Powered by AI Translation</p>
+
     </div>""", unsafe_allow_html=True)
